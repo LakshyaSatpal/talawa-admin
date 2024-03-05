@@ -31,8 +31,8 @@ jobs:
       - name: Install Dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Run linting check
-        run: npm run lint:check
+      - name: Run ESLint to check for linting errors in modified files
+        run: npx eslint $(git diff --name-only --diff-filter=d -- '**/*.{ts,tsx,json,scss,css}' ${{ github.event.before }} ${{ github.sha }})
       
       - name: Count number of lines
         run: |

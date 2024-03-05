@@ -73,6 +73,7 @@
     "build": "react-scripts build",
     "test": "cross-env NODE_ENV=test node scripts/test.js --env=./scripts/custom-test-env.js --watchAll --coverage",
     "eject": "react-scripts eject",
+    "lint-staged": "lint-staged",
     "lint:check": "eslint \"**/*.{ts,tsx}\" --max-warnings=0",
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "format:fix": "prettier --write \"**/*.{ts,tsx,json,scss,css}\"",
@@ -120,6 +121,7 @@
     "jest-location-mock": "^1.0.9",
     "jest-preview": "^0.3.1",
     "jquery": "^3.2.1",
+    "lint-staged": "^15.2.2",
     "postcss-modules": "^6.0.0"
   },
   "resolutions": {
@@ -127,5 +129,11 @@
     "@types/react": "17.0.2",
     "@types/react-dom": "17.0.2",
     "graphql": "^16.5.0"
+  },
+  "lint-staged": {
+    "**/*.{ts, tsx, json, scss, css}": [
+      "prettier --write"
+    ],
+    "**/*.{ts, tsx, json}": "eslint --fix"
   }
 }
